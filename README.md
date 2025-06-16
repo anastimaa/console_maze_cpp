@@ -238,16 +238,32 @@ if (player.lives == 0) {
 ## Скриншоты
 1. Меню у первого игрока
 
+![Снимок экрана 2025-06-16 080911](https://github.com/user-attachments/assets/9b37210c-5cc0-4f84-bbc3-26c959369b55)
+
 2. Меню у второго игрока
+
+![Снимок экрана 2025-06-16 084127](https://github.com/user-attachments/assets/bb21c98b-bd35-48b0-9fd5-f3cc68e003c5)
 
 3. Начало игры
 
+![Снимок экрана 2025-06-16 084048](https://github.com/user-attachments/assets/e0b6408f-43c2-403e-816f-5db12a9d2b16)
+
 4. Столкновение с мобом
+
+![Снимок экрана 2025-06-16 084203](https://github.com/user-attachments/assets/ff3a9c92-1213-4d6b-9a1c-e1e1728d2f29)
 
 5. Сбор ключа
 
+![Снимок экрана 2025-06-16 084252](https://github.com/user-attachments/assets/d793076d-5b10-4f27-836f-d29e3de9b354)
+
 6. Сбор алмаза
+
+![Снимок экрана 2025-06-16 084310](https://github.com/user-attachments/assets/b54830f3-333f-41b3-8cb4-2b82a5410765)
 
 7. Открытие двери
 
+![Снимок экрана 2025-06-16 084339](https://github.com/user-attachments/assets/1df15ab5-2834-494d-9829-56ebc45adefa)
+
 8. Конец игры
+
+![Снимок экрана 2025-06-16 084405](https://github.com/user-attachments/assets/893c49c7-c34d-4cce-ad19-2b9c42b827dc)

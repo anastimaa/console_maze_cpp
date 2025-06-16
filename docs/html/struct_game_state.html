@@ -1,0 +1,216 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Console maze: Структура GameState</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Console maze
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Классы</a> &#124;
+<a href="#pub-attribs">Открытые атрибуты</a> &#124;
+<a href="struct_game_state-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Структура GameState</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Структура, представляющая текущее состояние игры  
+ <a href="#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="server_8h_source.html">server.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Классы</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_game_state_1_1_player.html">Player</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Структура игрока  <a href="struct_game_state_1_1_player.html#details">Подробнее...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Открытые атрибуты</h2></td></tr>
+<tr class="memitem:a0fdea3a1b29c87740f83f0b1fdef3252" id="r_a0fdea3a1b29c87740f83f0b1fdef3252"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; char &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0fdea3a1b29c87740f83f0b1fdef3252">maze</a></td></tr>
+<tr class="memdesc:a0fdea3a1b29c87740f83f0b1fdef3252"><td class="mdescLeft">&#160;</td><td class="mdescRight">Двумерный вектор, представляющий игровое поле лабиринта  <br /></td></tr>
+<tr class="separator:a0fdea3a1b29c87740f83f0b1fdef3252"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf9892daf952a5fb432ab90d1a754afb" id="r_abf9892daf952a5fb432ab90d1a754afb"><td class="memItemLeft" align="right" valign="top">std::map&lt; int, <a class="el" href="struct_game_state_1_1_player.html">Player</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abf9892daf952a5fb432ab90d1a754afb">players</a></td></tr>
+<tr class="memdesc:abf9892daf952a5fb432ab90d1a754afb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Список игроков по их ID.  <br /></td></tr>
+<tr class="separator:abf9892daf952a5fb432ab90d1a754afb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d22e81a8cea56d21e20967db0962e77" id="r_a8d22e81a8cea56d21e20967db0962e77"><td class="memItemLeft" align="right" valign="top"><a id="a8d22e81a8cea56d21e20967db0962e77" name="a8d22e81a8cea56d21e20967db0962e77"></a>
+std::vector&lt; <a class="el" href="struct_mob.html">Mob</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>mobs</b></td></tr>
+<tr class="memdesc:a8d22e81a8cea56d21e20967db0962e77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Список мобов <br /></td></tr>
+<tr class="separator:a8d22e81a8cea56d21e20967db0962e77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae455adb5fd873dd748ffae2db6255f87" id="r_ae455adb5fd873dd748ffae2db6255f87"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae455adb5fd873dd748ffae2db6255f87">level</a></td></tr>
+<tr class="memdesc:ae455adb5fd873dd748ffae2db6255f87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Текущий уровень игры  <br /></td></tr>
+<tr class="separator:ae455adb5fd873dd748ffae2db6255f87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a243daae37ca46dde76ca65941b68804a" id="r_a243daae37ca46dde76ca65941b68804a"><td class="memItemLeft" align="right" valign="top"><a id="a243daae37ca46dde76ca65941b68804a" name="a243daae37ca46dde76ca65941b68804a"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>codegame</b></td></tr>
+<tr class="memdesc:a243daae37ca46dde76ca65941b68804a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Уникальный код текущей игры <br /></td></tr>
+<tr class="separator:a243daae37ca46dde76ca65941b68804a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49afe8a4051cf273620720a6247cd22d" id="r_a49afe8a4051cf273620720a6247cd22d"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a49afe8a4051cf273620720a6247cd22d">message</a></td></tr>
+<tr class="memdesc:a49afe8a4051cf273620720a6247cd22d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Сообщение для игроков  <br /></td></tr>
+<tr class="separator:a49afe8a4051cf273620720a6247cd22d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93c31815021156f52ae062c2e3f34406" id="r_a93c31815021156f52ae062c2e3f34406"><td class="memItemLeft" align="right" valign="top"><a id="a93c31815021156f52ae062c2e3f34406" name="a93c31815021156f52ae062c2e3f34406"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>codegame</b></td></tr>
+<tr class="memdesc:a93c31815021156f52ae062c2e3f34406"><td class="mdescLeft">&#160;</td><td class="mdescRight">Код игры <br /></td></tr>
+<tr class="separator:a93c31815021156f52ae062c2e3f34406"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Структура, представляющая текущее состояние игры </p>
+<p>Структура для хранения состояния игры на клиенте </p>
+</div><h2 class="groupheader">Данные класса</h2>
+<a id="ae455adb5fd873dd748ffae2db6255f87" name="ae455adb5fd873dd748ffae2db6255f87"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae455adb5fd873dd748ffae2db6255f87">&#9670;&#160;</a></span>level</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int GameState::level</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Текущий уровень игры </p>
+<p>Уровень сложности </p>
+
+</div>
+</div>
+<a id="a0fdea3a1b29c87740f83f0b1fdef3252" name="a0fdea3a1b29c87740f83f0b1fdef3252"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0fdea3a1b29c87740f83f0b1fdef3252">&#9670;&#160;</a></span>maze</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::vector&lt; char &gt; &gt; GameState::maze</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Двумерный вектор, представляющий игровое поле лабиринта </p>
+<p>Двумерный массив лабиринта </p>
+
+</div>
+</div>
+<a id="a49afe8a4051cf273620720a6247cd22d" name="a49afe8a4051cf273620720a6247cd22d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49afe8a4051cf273620720a6247cd22d">&#9670;&#160;</a></span>message</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string GameState::message</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Сообщение для игроков </p>
+<p>Сообщение от сервера </p>
+
+</div>
+</div>
+<a id="abf9892daf952a5fb432ab90d1a754afb" name="abf9892daf952a5fb432ab90d1a754afb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf9892daf952a5fb432ab90d1a754afb">&#9670;&#160;</a></span>players</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt; int, <a class="el" href="struct_game_state_1_1_player.html">Player</a> &gt; GameState::players</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Список игроков по их ID. </p>
+<p>Игроки (ID -&gt; <a class="el" href="struct_game_state_1_1_player.html" title="Структура игрока">Player</a>) </p>
+
+</div>
+</div>
+<hr/>Объявления и описания членов структур находятся в файлах:<ul>
+<li><a class="el" href="server_8h_source.html">server.h</a></li>
+<li><a class="el" href="client_8h_source.html">client.h</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

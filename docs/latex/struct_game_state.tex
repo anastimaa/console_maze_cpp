@@ -1,0 +1,90 @@
+\doxysection{Структура Game\+State}
+\hypertarget{struct_game_state}{}\label{struct_game_state}\index{GameState@{GameState}}
+
+
+Структура, представляющая текущее состояние игры  
+
+
+
+
+{\ttfamily \#include $<$server.\+h$>$}
+
+\doxysubsubsection*{Классы}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_game_state_1_1_player}{Player}}
+\begin{DoxyCompactList}\small\item\em Структура игрока \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Открытые атрибуты}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::vector$<$ char $>$ $>$ \mbox{\hyperlink{struct_game_state_a0fdea3a1b29c87740f83f0b1fdef3252}{maze}}
+\begin{DoxyCompactList}\small\item\em Двумерный вектор, представляющий игровое поле лабиринта \end{DoxyCompactList}\item 
+std\+::map$<$ int, \mbox{\hyperlink{struct_game_state_1_1_player}{Player}} $>$ \mbox{\hyperlink{struct_game_state_abf9892daf952a5fb432ab90d1a754afb}{players}}
+\begin{DoxyCompactList}\small\item\em Список игроков по их ID. \end{DoxyCompactList}\item 
+\Hypertarget{struct_game_state_a8d22e81a8cea56d21e20967db0962e77}\label{struct_game_state_a8d22e81a8cea56d21e20967db0962e77} 
+std\+::vector$<$ \mbox{\hyperlink{struct_mob}{Mob}} $>$ {\bfseries mobs}
+\begin{DoxyCompactList}\small\item\em Список мобов \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{struct_game_state_ae455adb5fd873dd748ffae2db6255f87}{level}}
+\begin{DoxyCompactList}\small\item\em Текущий уровень игры \end{DoxyCompactList}\item 
+\Hypertarget{struct_game_state_a243daae37ca46dde76ca65941b68804a}\label{struct_game_state_a243daae37ca46dde76ca65941b68804a} 
+int {\bfseries codegame}
+\begin{DoxyCompactList}\small\item\em Уникальный код текущей игры \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{struct_game_state_a49afe8a4051cf273620720a6247cd22d}{message}}
+\begin{DoxyCompactList}\small\item\em Сообщение для игроков \end{DoxyCompactList}\item 
+\Hypertarget{struct_game_state_a93c31815021156f52ae062c2e3f34406}\label{struct_game_state_a93c31815021156f52ae062c2e3f34406} 
+std\+::string {\bfseries codegame}
+\begin{DoxyCompactList}\small\item\em Код игры \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Структура, представляющая текущее состояние игры 
+
+Структура для хранения состояния игры на клиенте 
+
+\doxysubsection{Данные класса}
+\Hypertarget{struct_game_state_ae455adb5fd873dd748ffae2db6255f87}\index{GameState@{GameState}!level@{level}}
+\index{level@{level}!GameState@{GameState}}
+\doxysubsubsection{\texorpdfstring{level}{level}}
+{\footnotesize\ttfamily \label{struct_game_state_ae455adb5fd873dd748ffae2db6255f87} 
+int Game\+State\+::level}
+
+
+
+Текущий уровень игры 
+
+Уровень сложности \Hypertarget{struct_game_state_a0fdea3a1b29c87740f83f0b1fdef3252}\index{GameState@{GameState}!maze@{maze}}
+\index{maze@{maze}!GameState@{GameState}}
+\doxysubsubsection{\texorpdfstring{maze}{maze}}
+{\footnotesize\ttfamily \label{struct_game_state_a0fdea3a1b29c87740f83f0b1fdef3252} 
+std\+::vector$<$ std\+::vector$<$ char $>$ $>$ Game\+State\+::maze}
+
+
+
+Двумерный вектор, представляющий игровое поле лабиринта 
+
+Двумерный массив лабиринта \Hypertarget{struct_game_state_a49afe8a4051cf273620720a6247cd22d}\index{GameState@{GameState}!message@{message}}
+\index{message@{message}!GameState@{GameState}}
+\doxysubsubsection{\texorpdfstring{message}{message}}
+{\footnotesize\ttfamily \label{struct_game_state_a49afe8a4051cf273620720a6247cd22d} 
+std\+::string Game\+State\+::message}
+
+
+
+Сообщение для игроков 
+
+Сообщение от сервера \Hypertarget{struct_game_state_abf9892daf952a5fb432ab90d1a754afb}\index{GameState@{GameState}!players@{players}}
+\index{players@{players}!GameState@{GameState}}
+\doxysubsubsection{\texorpdfstring{players}{players}}
+{\footnotesize\ttfamily \label{struct_game_state_abf9892daf952a5fb432ab90d1a754afb} 
+std\+::map$<$ int, \mbox{\hyperlink{struct_game_state_1_1_player}{Player}} $>$ Game\+State\+::players}
+
+
+
+Список игроков по их ID. 
+
+Игроки (ID -\/\texorpdfstring{$>$}{>} \doxylink{struct_game_state_1_1_player}{Player}) 
+
+Объявления и описания членов структур находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{server_8h}{server.\+h}}\item 
+\mbox{\hyperlink{client_8h}{client.\+h}}\end{DoxyCompactItemize}

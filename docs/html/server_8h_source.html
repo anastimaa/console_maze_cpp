@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Console maze: Исходный файл server.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Console maze
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="doc-content">
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">server.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="server_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef SERVER_H</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define SERVER_H</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;asio.hpp&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;map&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;mutex&gt;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="server_8h.html#a39a4c239a5115203bf622699f3d70228">   15</a></span><span class="keyword">constexpr</span> <span class="keywordtype">char</span> <a class="code hl_variable" href="server_8h.html#a39a4c239a5115203bf622699f3d70228">DOOR</a> =</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keyword">static_cast&lt;</span><span class="keywordtype">char</span><span class="keyword">&gt;</span>(176); </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="server_8h.html#a8eb8416419b4089421f731df59366be0">   17</a></span><span class="keyword">const</span> <span class="keywordtype">char</span> <a class="code hl_variable" href="server_8h.html#a8eb8416419b4089421f731df59366be0">GEM</a> = <span class="charliteral">&#39;*&#39;</span>;       </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="server_8h.html#a7319ea5e78db33b6b3d7d85b76580428">   18</a></span><span class="keyword">const</span> <span class="keywordtype">char</span> <a class="code hl_variable" href="server_8h.html#a7319ea5e78db33b6b3d7d85b76580428">START</a> = <span class="charliteral">&#39;S&#39;</span>;     </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="server_8h.html#a1314ae15bb7fdec587dc8860dc23e526">   19</a></span><span class="keyword">const</span> <span class="keywordtype">char</span> <a class="code hl_variable" href="server_8h.html#a1314ae15bb7fdec587dc8860dc23e526">EXIT</a> = <span class="charliteral">&#39;E&#39;</span>;      </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="server_8h.html#a06a217bf923b38db178f573bd7627c93">   20</a></span><span class="keyword">const</span> <span class="keywordtype">char</span> <a class="code hl_variable" href="server_8h.html#a06a217bf923b38db178f573bd7627c93">MOB</a> = <span class="charliteral">&#39;M&#39;</span>;       </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="server_8h.html#a39db58dc496f2a195c766d3142b48781">   21</a></span><span class="keyword">const</span> <span class="keywordtype">char</span> <a class="code hl_variable" href="server_8h.html#a39db58dc496f2a195c766d3142b48781">KEY</a> = <span class="charliteral">&#39;K&#39;</span>;       </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="foldopen" id="foldopen00026" data-start="{" data-end="};">
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="struct_player.html">   26</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct_player.html">Player</a> {</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="struct_player.html#ad285b3cb25e4a46ca944b9a416c1b13f">   27</a></span>  <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_player.html#ad285b3cb25e4a46ca944b9a416c1b13f">x</a>;     </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="struct_player.html#a6da29d6e3783c6028c92647bbde478f5">   28</a></span>  <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_player.html#a6da29d6e3783c6028c92647bbde478f5">y</a>;     </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="struct_player.html#ab3300fa23175647f3ff50311dd2a7e04">   29</a></span>  <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_player.html#ab3300fa23175647f3ff50311dd2a7e04">lives</a>; </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="struct_player.html#ac46baa685ca2a266178f03b9e9877e65">   30</a></span>  <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_player.html#ac46baa685ca2a266178f03b9e9877e65">keys</a>;  </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="struct_player.html#a7d1755f33fbf276b29d2a9de58f4f20f">   31</a></span>  <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_player.html#a7d1755f33fbf276b29d2a9de58f4f20f">gems</a>;  </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>};</div>
+</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="foldopen" id="foldopen00037" data-start="{" data-end="};">
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="struct_mob.html">   37</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct_mob.html">Mob</a> {</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="struct_mob.html#af346693d375b27dac84401b8897587fb">   38</a></span>  <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_mob.html#af346693d375b27dac84401b8897587fb">x</a>, <a class="code hl_variable" href="struct_mob.html#a71bbc4edbeb32c67168dc5a858d6583b">y</a>; </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="struct_mob.html#add099e0035b4d2b9b16e7b583713def8">   39</a></span>  <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_mob.html#add099e0035b4d2b9b16e7b583713def8">d</a>;    </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>};</div>
+</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="foldopen" id="foldopen00045" data-start="{" data-end="};">
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="struct_game_state.html">   45</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct_game_state.html">GameState</a> {</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>  std::vector&lt;std::vector&lt;char&gt;&gt;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="struct_game_state.html#a0fdea3a1b29c87740f83f0b1fdef3252">   47</a></span>      <a class="code hl_variable" href="struct_game_state.html#a0fdea3a1b29c87740f83f0b1fdef3252">maze</a>; </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="struct_game_state.html#abf9892daf952a5fb432ab90d1a754afb">   48</a></span>  std::map&lt;int, Player&gt; <a class="code hl_variable" href="struct_game_state.html#abf9892daf952a5fb432ab90d1a754afb">players</a>; </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="struct_game_state.html#a8d22e81a8cea56d21e20967db0962e77">   49</a></span>  std::vector&lt;Mob&gt; <a class="code hl_variable" href="struct_game_state.html#a8d22e81a8cea56d21e20967db0962e77">mobs</a>;         </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="struct_game_state.html#ae455adb5fd873dd748ffae2db6255f87">   50</a></span>  <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_game_state.html#ae455adb5fd873dd748ffae2db6255f87">level</a>;                     </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="struct_game_state.html#a243daae37ca46dde76ca65941b68804a">   51</a></span>  <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_game_state.html#a243daae37ca46dde76ca65941b68804a">codegame</a>;                  </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="struct_game_state.html#a49afe8a4051cf273620720a6247cd22d">   52</a></span>  std::string <a class="code hl_variable" href="struct_game_state.html#a49afe8a4051cf273620720a6247cd22d">message</a>;           </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>};</div>
+</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="keyword">extern</span> <a class="code hl_struct" href="struct_game_state.html">GameState</a> <a class="code hl_variable" href="server_8h.html#ab8c8a2816ae974e5a2df22ec1e87fa51">game_state</a>;  </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="keyword">extern</span> std::mutex <a class="code hl_variable" href="server_8h.html#ae0940fc34ec62d41c941484214ea16fb">game_mutex</a>; </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="keyword">extern</span> std::map&lt;int, std::shared_ptr&lt;asio::ip::tcp::socket&gt;&gt;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <a class="code hl_variable" href="server_8h.html#ae73f8f1e728d5cd84d6523ece1dc7fd6">connections</a>;           </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="keyword">extern</span> <span class="keywordtype">bool</span> <a class="code hl_variable" href="server_8h.html#a0e43b21e540c75c6923fe575de1e3d0f">game_running</a>;  </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="server_8h.html#a7c1fd626dd4ab0a473c67a7e81549571">next_player_id</a>; </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="keywordtype">void</span> <a class="code hl_function" href="server_8h.html#ae95225f3a19c0178cafb019087eb9bdb">generate_maze</a>(<span class="keywordtype">int</span> level, <span class="keywordtype">bool</span> quiet_mode = <span class="keyword">false</span>);</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="keywordtype">void</span> <a class="code hl_function" href="server_8h.html#ac88833aaa22012dfe7b7ffa32774c93c">reset_game_state</a>();</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="keywordtype">bool</span> <a class="code hl_function" href="server_8h.html#afef27bd34fa59e77c3ce50bd61560742">check_step</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> player_id);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="keywordtype">void</span> <a class="code hl_function" href="server_8h.html#a062634b960b9344cc3a6e89ffe83c151">process_player_move</a>(<span class="keywordtype">int</span> player_id, <span class="keyword">const</span> std::string &amp;move);</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="keywordtype">void</span> <a class="code hl_function" href="server_8h.html#ac11ef209e4319d498021dd699b1a872d">handle_client</a>(std::shared_ptr&lt;asio::ip::tcp::socket&gt; socket,</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>                   <span class="keywordtype">int</span> player_id);</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="keywordtype">void</span> <a class="code hl_function" href="server_8h.html#a2a7c12b65f09b8afd033afd3b0b00964">broadcast_game_state</a>();</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="keywordtype">void</span> <a class="code hl_function" href="server_8h.html#a3fafd9b59ee6e68832287e04dbe8c541">send_game_state</a>(std::shared_ptr&lt;asio::ip::tcp::socket&gt; socket,</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>                     <span class="keyword">const</span> <a class="code hl_struct" href="struct_game_state.html">GameState</a> &amp;state);</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span><span class="keywordtype">void</span> <a class="code hl_function" href="server_8h.html#aaa19e94b0c31a3e8110fb5b425598e43">run_server</a>(asio::io_context &amp;io_context, <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> port);</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aserver_8h_html_a062634b960b9344cc3a6e89ffe83c151"><div class="ttname"><a href="server_8h.html#a062634b960b9344cc3a6e89ffe83c151">process_player_move</a></div><div class="ttdeci">void process_player_move(int player_id, const std::string &amp;move)</div><div class="ttdoc">Обрабатывает ход игрока, обновляет состояние игры</div><div class="ttdef"><b>Definition</b> server.cpp:160</div></div>
+<div class="ttc" id="aserver_8h_html_a06a217bf923b38db178f573bd7627c93"><div class="ttname"><a href="server_8h.html#a06a217bf923b38db178f573bd7627c93">MOB</a></div><div class="ttdeci">const char MOB</div><div class="ttdoc">Символ, обозначающий мобов</div><div class="ttdef"><b>Definition</b> server.h:20</div></div>
+<div class="ttc" id="aserver_8h_html_a0e43b21e540c75c6923fe575de1e3d0f"><div class="ttname"><a href="server_8h.html#a0e43b21e540c75c6923fe575de1e3d0f">game_running</a></div><div class="ttdeci">bool game_running</div><div class="ttdoc">Флаг, определяющий, активна ли игра</div><div class="ttdef"><b>Definition</b> server.cpp:21</div></div>
+<div class="ttc" id="aserver_8h_html_a1314ae15bb7fdec587dc8860dc23e526"><div class="ttname"><a href="server_8h.html#a1314ae15bb7fdec587dc8860dc23e526">EXIT</a></div><div class="ttdeci">const char EXIT</div><div class="ttdoc">Символ, обозначающий выход из лабиринта</div><div class="ttdef"><b>Definition</b> server.h:19</div></div>
+<div class="ttc" id="aserver_8h_html_a2a7c12b65f09b8afd033afd3b0b00964"><div class="ttname"><a href="server_8h.html#a2a7c12b65f09b8afd033afd3b0b00964">broadcast_game_state</a></div><div class="ttdeci">void broadcast_game_state()</div><div class="ttdoc">Отправляет текущее состояние игры всем подключенным игрокам</div><div class="ttdef"><b>Definition</b> server.cpp:319</div></div>
+<div class="ttc" id="aserver_8h_html_a39a4c239a5115203bf622699f3d70228"><div class="ttname"><a href="server_8h.html#a39a4c239a5115203bf622699f3d70228">DOOR</a></div><div class="ttdeci">constexpr char DOOR</div><div class="ttdoc">Символ, обозначающий закрытую дверь</div><div class="ttdef"><b>Definition</b> server.h:15</div></div>
+<div class="ttc" id="aserver_8h_html_a39db58dc496f2a195c766d3142b48781"><div class="ttname"><a href="server_8h.html#a39db58dc496f2a195c766d3142b48781">KEY</a></div><div class="ttdeci">const char KEY</div><div class="ttdoc">Символ, обозначающий ключ</div><div class="ttdef"><b>Definition</b> server.h:21</div></div>
+<div class="ttc" id="aserver_8h_html_a3fafd9b59ee6e68832287e04dbe8c541"><div class="ttname"><a href="server_8h.html#a3fafd9b59ee6e68832287e04dbe8c541">send_game_state</a></div><div class="ttdeci">void send_game_state(std::shared_ptr&lt; asio::ip::tcp::socket &gt; socket, const GameState &amp;state)</div><div class="ttdoc">Отправляет состояние игры одному клиенту</div><div class="ttdef"><b>Definition</b> server.cpp:286</div></div>
+<div class="ttc" id="aserver_8h_html_a7319ea5e78db33b6b3d7d85b76580428"><div class="ttname"><a href="server_8h.html#a7319ea5e78db33b6b3d7d85b76580428">START</a></div><div class="ttdeci">const char START</div><div class="ttdoc">Символ, обозначающий стартовую позицию игроков</div><div class="ttdef"><b>Definition</b> server.h:18</div></div>
+<div class="ttc" id="aserver_8h_html_a7c1fd626dd4ab0a473c67a7e81549571"><div class="ttname"><a href="server_8h.html#a7c1fd626dd4ab0a473c67a7e81549571">next_player_id</a></div><div class="ttdeci">int next_player_id</div><div class="ttdoc">ID следующего подключающегося игрока</div><div class="ttdef"><b>Definition</b> server.cpp:22</div></div>
+<div class="ttc" id="aserver_8h_html_a8eb8416419b4089421f731df59366be0"><div class="ttname"><a href="server_8h.html#a8eb8416419b4089421f731df59366be0">GEM</a></div><div class="ttdeci">const char GEM</div><div class="ttdoc">Символ, обозначающий алмаз</div><div class="ttdef"><b>Definition</b> server.h:17</div></div>
+<div class="ttc" id="aserver_8h_html_aaa19e94b0c31a3e8110fb5b425598e43"><div class="ttname"><a href="server_8h.html#aaa19e94b0c31a3e8110fb5b425598e43">run_server</a></div><div class="ttdeci">void run_server(asio::io_context &amp;io_context, unsigned short port)</div><div class="ttdoc">Запускает сервер для обработки подключений игроков и управления игровыми сессиями</div><div class="ttdef"><b>Definition</b> server.cpp:393</div></div>
+<div class="ttc" id="aserver_8h_html_ab8c8a2816ae974e5a2df22ec1e87fa51"><div class="ttname"><a href="server_8h.html#ab8c8a2816ae974e5a2df22ec1e87fa51">game_state</a></div><div class="ttdeci">GameState game_state</div><div class="ttdoc">Текущее состояние игры</div><div class="ttdef"><b>Definition</b> server.cpp:18</div></div>
+<div class="ttc" id="aserver_8h_html_ac11ef209e4319d498021dd699b1a872d"><div class="ttname"><a href="server_8h.html#ac11ef209e4319d498021dd699b1a872d">handle_client</a></div><div class="ttdeci">void handle_client(std::shared_ptr&lt; asio::ip::tcp::socket &gt; socket, int player_id)</div><div class="ttdoc">Обрабатывает подключение клиента: прием команд, отправка состояния</div><div class="ttdef"><b>Definition</b> server.cpp:328</div></div>
+<div class="ttc" id="aserver_8h_html_ac88833aaa22012dfe7b7ffa32774c93c"><div class="ttname"><a href="server_8h.html#ac88833aaa22012dfe7b7ffa32774c93c">reset_game_state</a></div><div class="ttdeci">void reset_game_state()</div><div class="ttdoc">Сбрасывает текущее состояние игры к начальным значениям</div><div class="ttdef"><b>Definition</b> server.cpp:121</div></div>
+<div class="ttc" id="aserver_8h_html_ae0940fc34ec62d41c941484214ea16fb"><div class="ttname"><a href="server_8h.html#ae0940fc34ec62d41c941484214ea16fb">game_mutex</a></div><div class="ttdeci">std::mutex game_mutex</div><div class="ttdoc">Мьютекс для синхронизации доступа</div><div class="ttdef"><b>Definition</b> server.cpp:19</div></div>
+<div class="ttc" id="aserver_8h_html_ae73f8f1e728d5cd84d6523ece1dc7fd6"><div class="ttname"><a href="server_8h.html#ae73f8f1e728d5cd84d6523ece1dc7fd6">connections</a></div><div class="ttdeci">std::map&lt; int, std::shared_ptr&lt; asio::ip::tcp::socket &gt; &gt; connections</div><div class="ttdoc">Активные подключения игроков</div><div class="ttdef"><b>Definition</b> server.cpp:20</div></div>
+<div class="ttc" id="aserver_8h_html_ae95225f3a19c0178cafb019087eb9bdb"><div class="ttname"><a href="server_8h.html#ae95225f3a19c0178cafb019087eb9bdb">generate_maze</a></div><div class="ttdeci">void generate_maze(int level, bool quiet_mode=false)</div><div class="ttdoc">Генерирует лабиринт и размещает объекты в зависимости от уровня</div><div class="ttdef"><b>Definition</b> server.cpp:24</div></div>
+<div class="ttc" id="aserver_8h_html_afef27bd34fa59e77c3ce50bd61560742"><div class="ttname"><a href="server_8h.html#afef27bd34fa59e77c3ce50bd61560742">check_step</a></div><div class="ttdeci">bool check_step(int x, int y, int player_id)</div><div class="ttdoc">Проверяет возможность хода в указанную клетку</div><div class="ttdef"><b>Definition</b> server.cpp:132</div></div>
+<div class="ttc" id="astruct_game_state_html"><div class="ttname"><a href="struct_game_state.html">GameState</a></div><div class="ttdoc">Структура, представляющая текущее состояние игры</div><div class="ttdef"><b>Definition</b> server.h:45</div></div>
+<div class="ttc" id="astruct_game_state_html_a0fdea3a1b29c87740f83f0b1fdef3252"><div class="ttname"><a href="struct_game_state.html#a0fdea3a1b29c87740f83f0b1fdef3252">GameState::maze</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; char &gt; &gt; maze</div><div class="ttdoc">Двумерный вектор, представляющий игровое поле лабиринта</div><div class="ttdef"><b>Definition</b> server.h:47</div></div>
+<div class="ttc" id="astruct_game_state_html_a243daae37ca46dde76ca65941b68804a"><div class="ttname"><a href="struct_game_state.html#a243daae37ca46dde76ca65941b68804a">GameState::codegame</a></div><div class="ttdeci">int codegame</div><div class="ttdoc">Уникальный код текущей игры</div><div class="ttdef"><b>Definition</b> server.h:51</div></div>
+<div class="ttc" id="astruct_game_state_html_a49afe8a4051cf273620720a6247cd22d"><div class="ttname"><a href="struct_game_state.html#a49afe8a4051cf273620720a6247cd22d">GameState::message</a></div><div class="ttdeci">std::string message</div><div class="ttdoc">Сообщение для игроков</div><div class="ttdef"><b>Definition</b> server.h:52</div></div>
+<div class="ttc" id="astruct_game_state_html_a8d22e81a8cea56d21e20967db0962e77"><div class="ttname"><a href="struct_game_state.html#a8d22e81a8cea56d21e20967db0962e77">GameState::mobs</a></div><div class="ttdeci">std::vector&lt; Mob &gt; mobs</div><div class="ttdoc">Список мобов</div><div class="ttdef"><b>Definition</b> server.h:49</div></div>
+<div class="ttc" id="astruct_game_state_html_abf9892daf952a5fb432ab90d1a754afb"><div class="ttname"><a href="struct_game_state.html#abf9892daf952a5fb432ab90d1a754afb">GameState::players</a></div><div class="ttdeci">std::map&lt; int, Player &gt; players</div><div class="ttdoc">Список игроков по их ID.</div><div class="ttdef"><b>Definition</b> server.h:48</div></div>
+<div class="ttc" id="astruct_game_state_html_ae455adb5fd873dd748ffae2db6255f87"><div class="ttname"><a href="struct_game_state.html#ae455adb5fd873dd748ffae2db6255f87">GameState::level</a></div><div class="ttdeci">int level</div><div class="ttdoc">Текущий уровень игры</div><div class="ttdef"><b>Definition</b> server.h:50</div></div>
+<div class="ttc" id="astruct_mob_html"><div class="ttname"><a href="struct_mob.html">Mob</a></div><div class="ttdoc">Структура, описывающая моба</div><div class="ttdef"><b>Definition</b> server.h:37</div></div>
+<div class="ttc" id="astruct_mob_html_a71bbc4edbeb32c67168dc5a858d6583b"><div class="ttname"><a href="struct_mob.html#a71bbc4edbeb32c67168dc5a858d6583b">Mob::y</a></div><div class="ttdeci">int y</div><div class="ttdoc">Координаты моба в лабиринте</div><div class="ttdef"><b>Definition</b> server.h:38</div></div>
+<div class="ttc" id="astruct_mob_html_add099e0035b4d2b9b16e7b583713def8"><div class="ttname"><a href="struct_mob.html#add099e0035b4d2b9b16e7b583713def8">Mob::d</a></div><div class="ttdeci">int d</div><div class="ttdoc">Направление движения</div><div class="ttdef"><b>Definition</b> server.h:39</div></div>
+<div class="ttc" id="astruct_mob_html_af346693d375b27dac84401b8897587fb"><div class="ttname"><a href="struct_mob.html#af346693d375b27dac84401b8897587fb">Mob::x</a></div><div class="ttdeci">int x</div><div class="ttdoc">Координата X моба</div><div class="ttdef"><b>Definition</b> server.h:38</div></div>
+<div class="ttc" id="astruct_player_html"><div class="ttname"><a href="struct_player.html">Player</a></div><div class="ttdoc">Структура, описывающая игрока</div><div class="ttdef"><b>Definition</b> server.h:26</div></div>
+<div class="ttc" id="astruct_player_html_a6da29d6e3783c6028c92647bbde478f5"><div class="ttname"><a href="struct_player.html#a6da29d6e3783c6028c92647bbde478f5">Player::y</a></div><div class="ttdeci">int y</div><div class="ttdoc">Координата y игрока в лабиринте</div><div class="ttdef"><b>Definition</b> server.h:28</div></div>
+<div class="ttc" id="astruct_player_html_a7d1755f33fbf276b29d2a9de58f4f20f"><div class="ttname"><a href="struct_player.html#a7d1755f33fbf276b29d2a9de58f4f20f">Player::gems</a></div><div class="ttdeci">int gems</div><div class="ttdoc">Количество собранных алмазов</div><div class="ttdef"><b>Definition</b> server.h:31</div></div>
+<div class="ttc" id="astruct_player_html_ab3300fa23175647f3ff50311dd2a7e04"><div class="ttname"><a href="struct_player.html#ab3300fa23175647f3ff50311dd2a7e04">Player::lives</a></div><div class="ttdeci">int lives</div><div class="ttdoc">Количество жизней игрока</div><div class="ttdef"><b>Definition</b> server.h:29</div></div>
+<div class="ttc" id="astruct_player_html_ac46baa685ca2a266178f03b9e9877e65"><div class="ttname"><a href="struct_player.html#ac46baa685ca2a266178f03b9e9877e65">Player::keys</a></div><div class="ttdeci">int keys</div><div class="ttdoc">Количество собранных ключей</div><div class="ttdef"><b>Definition</b> server.h:30</div></div>
+<div class="ttc" id="astruct_player_html_ad285b3cb25e4a46ca944b9a416c1b13f"><div class="ttname"><a href="struct_player.html#ad285b3cb25e4a46ca944b9a416c1b13f">Player::x</a></div><div class="ttdeci">int x</div><div class="ttdoc">Координата x игрока в лабиринте</div><div class="ttdef"><b>Definition</b> server.h:27</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

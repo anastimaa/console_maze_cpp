@@ -1,0 +1,100 @@
+\doxysection{Файл client.\+h}
+\hypertarget{client_8h}{}\label{client_8h}\index{client.h@{client.h}}
+
+
+Заголовочный файл клиента для двухпользовательской игры в лабиринт  
+
+
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$mutex$>$}\newline
+{\ttfamily \#include $<$winsock2.\+h$>$}\newline
+{\ttfamily \#include $<$asio.\+hpp$>$}\newline
+\doxysubsubsection*{Классы}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_mob}{Mob}}
+\begin{DoxyCompactList}\small\item\em Структура, описывающая моба \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_game_state}{Game\+State}}
+\begin{DoxyCompactList}\small\item\em Структура, представляющая текущее состояние игры \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_game_state_1_1_player}{Game\+State\+::\+Player}}
+\begin{DoxyCompactList}\small\item\em Структура игрока \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+char \mbox{\hyperlink{client_8h_add230fdc45713632b0401e0edbb8e0c3}{get\+\_\+char}} ()
+\begin{DoxyCompactList}\small\item\em Получает символ без ожидания Enter. \end{DoxyCompactList}\item 
+\Hypertarget{client_8h_a4953d1edcbbfc7e420c423ded1d5621a}\label{client_8h_a4953d1edcbbfc7e420c423ded1d5621a} 
+void {\bfseries clear\+\_\+screen} ()
+\begin{DoxyCompactList}\small\item\em Очищает экран консоли \end{DoxyCompactList}\item 
+\Hypertarget{client_8h_a116f5db451cfe52a4f8ae0bdf32e3bbc}\label{client_8h_a116f5db451cfe52a4f8ae0bdf32e3bbc} 
+void {\bfseries game\+\_\+menu} ()
+\begin{DoxyCompactList}\small\item\em Отображает меню игры и обрабатывает выбор пользователя \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{client_8h_aa377824539a29ae5b1e384f427a7962f}{print\+\_\+game\+\_\+state}} (const \mbox{\hyperlink{struct_game_state}{Game\+State}} \&state)
+\begin{DoxyCompactList}\small\item\em Выводит текущее состояние игры \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{client_8h_aefdd88cef44c493b41b8f2e8d0e86111}{receive\+\_\+data}} (asio\+::ip\+::tcp\+::socket \texorpdfstring{$\ast$}{*}socket)
+\begin{DoxyCompactList}\small\item\em Получает данные от сервера (запускается в отдельном потоке) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Переменные}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{client_8h_ab8c8a2816ae974e5a2df22ec1e87fa51}\label{client_8h_ab8c8a2816ae974e5a2df22ec1e87fa51} 
+\mbox{\hyperlink{struct_game_state}{Game\+State}} {\bfseries game\+\_\+state}
+\begin{DoxyCompactList}\small\item\em Текущее состояние игры \end{DoxyCompactList}\item 
+\Hypertarget{client_8h_ae0940fc34ec62d41c941484214ea16fb}\label{client_8h_ae0940fc34ec62d41c941484214ea16fb} 
+std\+::mutex {\bfseries game\+\_\+mutex}
+\begin{DoxyCompactList}\small\item\em Мьютекс для синхронизации доступа \end{DoxyCompactList}\item 
+\Hypertarget{client_8h_a0e43b21e540c75c6923fe575de1e3d0f}\label{client_8h_a0e43b21e540c75c6923fe575de1e3d0f} 
+bool {\bfseries game\+\_\+running}
+\begin{DoxyCompactList}\small\item\em Флаг, определяющий, активна ли игра \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Заголовочный файл клиента для двухпользовательской игры в лабиринт 
+
+
+
+\doxysubsection{Функции}
+\Hypertarget{client_8h_add230fdc45713632b0401e0edbb8e0c3}\index{client.h@{client.h}!get\_char@{get\_char}}
+\index{get\_char@{get\_char}!client.h@{client.h}}
+\doxysubsubsection{\texorpdfstring{get\_char()}{get\_char()}}
+{\footnotesize\ttfamily \label{client_8h_add230fdc45713632b0401e0edbb8e0c3} 
+char get\+\_\+char (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Получает символ без ожидания Enter. 
+
+\begin{DoxyReturn}{Возвращает}
+Символ, введённый пользователем 
+\end{DoxyReturn}
+\Hypertarget{client_8h_aa377824539a29ae5b1e384f427a7962f}\index{client.h@{client.h}!print\_game\_state@{print\_game\_state}}
+\index{print\_game\_state@{print\_game\_state}!client.h@{client.h}}
+\doxysubsubsection{\texorpdfstring{print\_game\_state()}{print\_game\_state()}}
+{\footnotesize\ttfamily \label{client_8h_aa377824539a29ae5b1e384f427a7962f} 
+void print\+\_\+game\+\_\+state (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_game_state}{Game\+State}} \&}]{state}{}\end{DoxyParamCaption})}
+
+
+
+Выводит текущее состояние игры 
+
+
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{ in}}  & {\em state} & Состояние игры для отображения \\
+\hline
+\end{DoxyParams}
+\Hypertarget{client_8h_aefdd88cef44c493b41b8f2e8d0e86111}\index{client.h@{client.h}!receive\_data@{receive\_data}}
+\index{receive\_data@{receive\_data}!client.h@{client.h}}
+\doxysubsubsection{\texorpdfstring{receive\_data()}{receive\_data()}}
+{\footnotesize\ttfamily \label{client_8h_aefdd88cef44c493b41b8f2e8d0e86111} 
+void receive\+\_\+data (\begin{DoxyParamCaption}\item[{asio\+::ip\+::tcp\+::socket \texorpdfstring{$\ast$}{*}}]{socket}{}\end{DoxyParamCaption})}
+
+
+
+Получает данные от сервера (запускается в отдельном потоке) 
+
+
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{ in}}  & {\em socket} & Указатель на сокет для обмена данными с сервером \\
+\hline
+\end{DoxyParams}

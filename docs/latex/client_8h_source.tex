@@ -1,0 +1,54 @@
+\doxysection{client.\+h}
+\hypertarget{client_8h_source}{}\label{client_8h_source}\mbox{\hyperlink{client_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ CLIENT\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ CLIENT\_H}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <mutex>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <winsock2.h>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <asio.hpp>}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_mob}{Mob}}\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_mob_af346693d375b27dac84401b8897587fb}{x}};\ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_mob_a71bbc4edbeb32c67168dc5a858d6583b}{y}};\ }
+\DoxyCodeLine{00022\ \};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_game_state}{GameState}}\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_game_state_1_1_player}{Player}}\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_game_state_1_1_player_a7712fa9c5d8b51f52212bb9ad49096b9}{x}};\ \ \ \ \ \ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_game_state_1_1_player_aaf507f08bba146fa4c5ad72c7cf98b16}{y}};\ \ \ \ \ \ }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_game_state_1_1_player_a79c48a1f780cd824327152707f8696d5}{lives}};\ \ }
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_game_state_1_1_player_ad3811ea6f411529d3b3a2c0bf88c027e}{keys}};\ \ \ }
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_game_state_1_1_player_aec641a72774a09b09fd53ac4623696c4}{gems}};\ \ \ }
+\DoxyCodeLine{00037\ \ \ \ \ \};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ std::vector<std::vector<char>>\ \mbox{\hyperlink{struct_game_state_a0fdea3a1b29c87740f83f0b1fdef3252}{maze}};\ \ }
+\DoxyCodeLine{00040\ \ \ \ \ std::map<int,\ Player>\ \mbox{\hyperlink{struct_game_state_abf9892daf952a5fb432ab90d1a754afb}{players}};\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00041\ \ \ \ \ std::vector<Mob>\ \mbox{\hyperlink{struct_game_state_a8d22e81a8cea56d21e20967db0962e77}{mobs}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_game_state_ae455adb5fd873dd748ffae2db6255f87}{level}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00043\ \ \ \ \ std::string\ \mbox{\hyperlink{struct_game_state_a93c31815021156f52ae062c2e3f34406}{codegame}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00044\ \ \ \ \ std::string\ \mbox{\hyperlink{struct_game_state_a49afe8a4051cf273620720a6247cd22d}{message}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00045\ \};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{comment}{//\ Глобальные\ переменные}}
+\DoxyCodeLine{00048\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{struct_game_state}{GameState}}\ \mbox{\hyperlink{client_8h_ab8c8a2816ae974e5a2df22ec1e87fa51}{game\_state}};\ \ \ }
+\DoxyCodeLine{00049\ \textcolor{keyword}{extern}\ std::mutex\ \mbox{\hyperlink{client_8h_ae0940fc34ec62d41c941484214ea16fb}{game\_mutex}};\ \ \ \ \ }
+\DoxyCodeLine{00050\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{client_8h_a0e43b21e540c75c6923fe575de1e3d0f}{game\_running}};\ \ \ \ }
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00056\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{client_8h_add230fdc45713632b0401e0edbb8e0c3}{get\_char}}();}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00061\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{client_8h_a4953d1edcbbfc7e420c423ded1d5621a}{clear\_screen}}();}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00066\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{client_8h_a116f5db451cfe52a4f8ae0bdf32e3bbc}{game\_menu}}();}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00072\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{client_8h_aa377824539a29ae5b1e384f427a7962f}{print\_game\_state}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_game_state}{GameState}}\&\ state);}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00078\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{client_8h_aefdd88cef44c493b41b8f2e8d0e86111}{receive\_data}}(asio::ip::tcp::socket*\ socket);}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

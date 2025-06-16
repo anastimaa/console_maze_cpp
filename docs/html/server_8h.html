@@ -1,0 +1,429 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Console maze: Файл server.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Console maze
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Классы</a> &#124;
+<a href="#func-members">Функции</a> &#124;
+<a href="#var-members">Переменные</a>  </div>
+  <div class="headertitle"><div class="title">Файл server.h</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Заголовочный файл сервера для двухпользовательской игры в лабиринт  
+<a href="#details">Подробнее...</a></p>
+<div class="textblock"><code>#include &lt;asio.hpp&gt;</code><br />
+<code>#include &lt;map&gt;</code><br />
+<code>#include &lt;mutex&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
+</div>
+<p><a href="server_8h_source.html">См. исходные тексты.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Классы</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_player.html">Player</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Структура, описывающая игрока  <a href="struct_player.html#details">Подробнее...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_mob.html">Mob</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Структура, описывающая моба  <a href="struct_mob.html#details">Подробнее...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_game_state.html">GameState</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Структура, представляющая текущее состояние игры  <a href="struct_game_state.html#details">Подробнее...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:ae95225f3a19c0178cafb019087eb9bdb" id="r_ae95225f3a19c0178cafb019087eb9bdb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae95225f3a19c0178cafb019087eb9bdb">generate_maze</a> (int level, bool quiet_mode=false)</td></tr>
+<tr class="memdesc:ae95225f3a19c0178cafb019087eb9bdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Генерирует лабиринт и размещает объекты в зависимости от уровня  <br /></td></tr>
+<tr class="separator:ae95225f3a19c0178cafb019087eb9bdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac88833aaa22012dfe7b7ffa32774c93c" id="r_ac88833aaa22012dfe7b7ffa32774c93c"><td class="memItemLeft" align="right" valign="top"><a id="ac88833aaa22012dfe7b7ffa32774c93c" name="ac88833aaa22012dfe7b7ffa32774c93c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>reset_game_state</b> ()</td></tr>
+<tr class="memdesc:ac88833aaa22012dfe7b7ffa32774c93c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Сбрасывает текущее состояние игры к начальным значениям <br /></td></tr>
+<tr class="separator:ac88833aaa22012dfe7b7ffa32774c93c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afef27bd34fa59e77c3ce50bd61560742" id="r_afef27bd34fa59e77c3ce50bd61560742"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afef27bd34fa59e77c3ce50bd61560742">check_step</a> (int x, int y, int player_id)</td></tr>
+<tr class="memdesc:afef27bd34fa59e77c3ce50bd61560742"><td class="mdescLeft">&#160;</td><td class="mdescRight">Проверяет возможность хода в указанную клетку  <br /></td></tr>
+<tr class="separator:afef27bd34fa59e77c3ce50bd61560742"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a062634b960b9344cc3a6e89ffe83c151" id="r_a062634b960b9344cc3a6e89ffe83c151"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a062634b960b9344cc3a6e89ffe83c151">process_player_move</a> (int player_id, const std::string &amp;move)</td></tr>
+<tr class="memdesc:a062634b960b9344cc3a6e89ffe83c151"><td class="mdescLeft">&#160;</td><td class="mdescRight">Обрабатывает ход игрока, обновляет состояние игры  <br /></td></tr>
+<tr class="separator:a062634b960b9344cc3a6e89ffe83c151"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac11ef209e4319d498021dd699b1a872d" id="r_ac11ef209e4319d498021dd699b1a872d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac11ef209e4319d498021dd699b1a872d">handle_client</a> (std::shared_ptr&lt; asio::ip::tcp::socket &gt; socket, int player_id)</td></tr>
+<tr class="memdesc:ac11ef209e4319d498021dd699b1a872d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Обрабатывает подключение клиента: прием команд, отправка состояния  <br /></td></tr>
+<tr class="separator:ac11ef209e4319d498021dd699b1a872d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a7c12b65f09b8afd033afd3b0b00964" id="r_a2a7c12b65f09b8afd033afd3b0b00964"><td class="memItemLeft" align="right" valign="top"><a id="a2a7c12b65f09b8afd033afd3b0b00964" name="a2a7c12b65f09b8afd033afd3b0b00964"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>broadcast_game_state</b> ()</td></tr>
+<tr class="memdesc:a2a7c12b65f09b8afd033afd3b0b00964"><td class="mdescLeft">&#160;</td><td class="mdescRight">Отправляет текущее состояние игры всем подключенным игрокам <br /></td></tr>
+<tr class="separator:a2a7c12b65f09b8afd033afd3b0b00964"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3fafd9b59ee6e68832287e04dbe8c541" id="r_a3fafd9b59ee6e68832287e04dbe8c541"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3fafd9b59ee6e68832287e04dbe8c541">send_game_state</a> (std::shared_ptr&lt; asio::ip::tcp::socket &gt; socket, const <a class="el" href="struct_game_state.html">GameState</a> &amp;state)</td></tr>
+<tr class="memdesc:a3fafd9b59ee6e68832287e04dbe8c541"><td class="mdescLeft">&#160;</td><td class="mdescRight">Отправляет состояние игры одному клиенту  <br /></td></tr>
+<tr class="separator:a3fafd9b59ee6e68832287e04dbe8c541"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa19e94b0c31a3e8110fb5b425598e43" id="r_aaa19e94b0c31a3e8110fb5b425598e43"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaa19e94b0c31a3e8110fb5b425598e43">run_server</a> (asio::io_context &amp;io_context, unsigned short port)</td></tr>
+<tr class="memdesc:aaa19e94b0c31a3e8110fb5b425598e43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Запускает сервер для обработки подключений игроков и управления игровыми сессиями  <br /></td></tr>
+<tr class="separator:aaa19e94b0c31a3e8110fb5b425598e43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Переменные</h2></td></tr>
+<tr class="memitem:a39a4c239a5115203bf622699f3d70228" id="r_a39a4c239a5115203bf622699f3d70228"><td class="memItemLeft" align="right" valign="top">constexpr char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a39a4c239a5115203bf622699f3d70228">DOOR</a></td></tr>
+<tr class="memdesc:a39a4c239a5115203bf622699f3d70228"><td class="mdescLeft">&#160;</td><td class="mdescRight">Символ, обозначающий закрытую дверь  <br /></td></tr>
+<tr class="separator:a39a4c239a5115203bf622699f3d70228"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8eb8416419b4089421f731df59366be0" id="r_a8eb8416419b4089421f731df59366be0"><td class="memItemLeft" align="right" valign="top"><a id="a8eb8416419b4089421f731df59366be0" name="a8eb8416419b4089421f731df59366be0"></a>
+const char&#160;</td><td class="memItemRight" valign="bottom"><b>GEM</b> = '*'</td></tr>
+<tr class="memdesc:a8eb8416419b4089421f731df59366be0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Символ, обозначающий алмаз <br /></td></tr>
+<tr class="separator:a8eb8416419b4089421f731df59366be0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7319ea5e78db33b6b3d7d85b76580428" id="r_a7319ea5e78db33b6b3d7d85b76580428"><td class="memItemLeft" align="right" valign="top"><a id="a7319ea5e78db33b6b3d7d85b76580428" name="a7319ea5e78db33b6b3d7d85b76580428"></a>
+const char&#160;</td><td class="memItemRight" valign="bottom"><b>START</b> = 'S'</td></tr>
+<tr class="memdesc:a7319ea5e78db33b6b3d7d85b76580428"><td class="mdescLeft">&#160;</td><td class="mdescRight">Символ, обозначающий стартовую позицию игроков <br /></td></tr>
+<tr class="separator:a7319ea5e78db33b6b3d7d85b76580428"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1314ae15bb7fdec587dc8860dc23e526" id="r_a1314ae15bb7fdec587dc8860dc23e526"><td class="memItemLeft" align="right" valign="top"><a id="a1314ae15bb7fdec587dc8860dc23e526" name="a1314ae15bb7fdec587dc8860dc23e526"></a>
+const char&#160;</td><td class="memItemRight" valign="bottom"><b>EXIT</b> = 'E'</td></tr>
+<tr class="memdesc:a1314ae15bb7fdec587dc8860dc23e526"><td class="mdescLeft">&#160;</td><td class="mdescRight">Символ, обозначающий выход из лабиринта <br /></td></tr>
+<tr class="separator:a1314ae15bb7fdec587dc8860dc23e526"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06a217bf923b38db178f573bd7627c93" id="r_a06a217bf923b38db178f573bd7627c93"><td class="memItemLeft" align="right" valign="top"><a id="a06a217bf923b38db178f573bd7627c93" name="a06a217bf923b38db178f573bd7627c93"></a>
+const char&#160;</td><td class="memItemRight" valign="bottom"><b>MOB</b> = 'M'</td></tr>
+<tr class="memdesc:a06a217bf923b38db178f573bd7627c93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Символ, обозначающий мобов <br /></td></tr>
+<tr class="separator:a06a217bf923b38db178f573bd7627c93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39db58dc496f2a195c766d3142b48781" id="r_a39db58dc496f2a195c766d3142b48781"><td class="memItemLeft" align="right" valign="top"><a id="a39db58dc496f2a195c766d3142b48781" name="a39db58dc496f2a195c766d3142b48781"></a>
+const char&#160;</td><td class="memItemRight" valign="bottom"><b>KEY</b> = 'K'</td></tr>
+<tr class="memdesc:a39db58dc496f2a195c766d3142b48781"><td class="mdescLeft">&#160;</td><td class="mdescRight">Символ, обозначающий ключ <br /></td></tr>
+<tr class="separator:a39db58dc496f2a195c766d3142b48781"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8c8a2816ae974e5a2df22ec1e87fa51" id="r_ab8c8a2816ae974e5a2df22ec1e87fa51"><td class="memItemLeft" align="right" valign="top"><a id="ab8c8a2816ae974e5a2df22ec1e87fa51" name="ab8c8a2816ae974e5a2df22ec1e87fa51"></a>
+<a class="el" href="struct_game_state.html">GameState</a>&#160;</td><td class="memItemRight" valign="bottom"><b>game_state</b></td></tr>
+<tr class="memdesc:ab8c8a2816ae974e5a2df22ec1e87fa51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Текущее состояние игры <br /></td></tr>
+<tr class="separator:ab8c8a2816ae974e5a2df22ec1e87fa51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0940fc34ec62d41c941484214ea16fb" id="r_ae0940fc34ec62d41c941484214ea16fb"><td class="memItemLeft" align="right" valign="top"><a id="ae0940fc34ec62d41c941484214ea16fb" name="ae0940fc34ec62d41c941484214ea16fb"></a>
+std::mutex&#160;</td><td class="memItemRight" valign="bottom"><b>game_mutex</b></td></tr>
+<tr class="memdesc:ae0940fc34ec62d41c941484214ea16fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Мьютекс для синхронизации доступа <br /></td></tr>
+<tr class="separator:ae0940fc34ec62d41c941484214ea16fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae73f8f1e728d5cd84d6523ece1dc7fd6" id="r_ae73f8f1e728d5cd84d6523ece1dc7fd6"><td class="memItemLeft" align="right" valign="top"><a id="ae73f8f1e728d5cd84d6523ece1dc7fd6" name="ae73f8f1e728d5cd84d6523ece1dc7fd6"></a>
+std::map&lt; int, std::shared_ptr&lt; asio::ip::tcp::socket &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>connections</b></td></tr>
+<tr class="memdesc:ae73f8f1e728d5cd84d6523ece1dc7fd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Активные подключения игроков <br /></td></tr>
+<tr class="separator:ae73f8f1e728d5cd84d6523ece1dc7fd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e43b21e540c75c6923fe575de1e3d0f" id="r_a0e43b21e540c75c6923fe575de1e3d0f"><td class="memItemLeft" align="right" valign="top"><a id="a0e43b21e540c75c6923fe575de1e3d0f" name="a0e43b21e540c75c6923fe575de1e3d0f"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>game_running</b></td></tr>
+<tr class="memdesc:a0e43b21e540c75c6923fe575de1e3d0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Флаг, определяющий, активна ли игра <br /></td></tr>
+<tr class="separator:a0e43b21e540c75c6923fe575de1e3d0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c1fd626dd4ab0a473c67a7e81549571" id="r_a7c1fd626dd4ab0a473c67a7e81549571"><td class="memItemLeft" align="right" valign="top"><a id="a7c1fd626dd4ab0a473c67a7e81549571" name="a7c1fd626dd4ab0a473c67a7e81549571"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>next_player_id</b></td></tr>
+<tr class="memdesc:a7c1fd626dd4ab0a473c67a7e81549571"><td class="mdescLeft">&#160;</td><td class="mdescRight">ID следующего подключающегося игрока <br /></td></tr>
+<tr class="separator:a7c1fd626dd4ab0a473c67a7e81549571"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Заголовочный файл сервера для двухпользовательской игры в лабиринт </p>
+</div><h2 class="groupheader">Функции</h2>
+<a id="afef27bd34fa59e77c3ce50bd61560742" name="afef27bd34fa59e77c3ce50bd61560742"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afef27bd34fa59e77c3ce50bd61560742">&#9670;&#160;</a></span>check_step()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool check_step </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>player_id</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Проверяет возможность хода в указанную клетку </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">x</td><td>Координата x </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">y</td><td>Координата y </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">player_id</td><td>ID игрока (1 или 2) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>true, если игрок может сделать ход в указанную клетку, иначе false </dd></dl>
+<dl class="exception"><dt>Исключения</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::out_of_range</td><td>В случае, если координаты x или y находятся вне границ лабиринта </td></tr>
+    <tr><td class="paramname">std::invalid_argument</td><td>В случае, если указанного игрока (player_id) нет в текущем состоянии игры </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae95225f3a19c0178cafb019087eb9bdb" name="ae95225f3a19c0178cafb019087eb9bdb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae95225f3a19c0178cafb019087eb9bdb">&#9670;&#160;</a></span>generate_maze()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void generate_maze </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>level</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>quiet_mode</em></span><span class="paramdefsep"> = </span><span class="paramdefval">false</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Генерирует лабиринт и размещает объекты в зависимости от уровня </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">level</td><td>Уровень сложности (1, 2 или 3) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">quiet_mode</td><td>По умолчанию false, но если true, то подавляет вывод сообщения в консоль </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Исключения</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::invalid_argument</td><td>В случае, если введен неверный уровень сложности (не 1, 2 или 3) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac11ef209e4319d498021dd699b1a872d" name="ac11ef209e4319d498021dd699b1a872d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac11ef209e4319d498021dd699b1a872d">&#9670;&#160;</a></span>handle_client()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void handle_client </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; asio::ip::tcp::socket &gt;</td>          <td class="paramname"><span class="paramname"><em>socket</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>player_id</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Обрабатывает подключение клиента: прием команд, отправка состояния </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">socket</td><td>Сокет подключенного клиента </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">player_id</td><td>ID игрока (1 или 2) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a062634b960b9344cc3a6e89ffe83c151" name="a062634b960b9344cc3a6e89ffe83c151"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a062634b960b9344cc3a6e89ffe83c151">&#9670;&#160;</a></span>process_player_move()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void process_player_move </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>player_id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>move</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Обрабатывает ход игрока, обновляет состояние игры </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">player_id</td><td>ID игрока (1 или 2) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">move</td><td>Направление хода ("up", "down", "left", "right") </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aaa19e94b0c31a3e8110fb5b425598e43" name="aaa19e94b0c31a3e8110fb5b425598e43"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa19e94b0c31a3e8110fb5b425598e43">&#9670;&#160;</a></span>run_server()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void run_server </td>
+          <td>(</td>
+          <td class="paramtype">asio::io_context &amp;</td>          <td class="paramname"><span class="paramname"><em>io_context</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned short</td>          <td class="paramname"><span class="paramname"><em>port</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Запускает сервер для обработки подключений игроков и управления игровыми сессиями </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">io_context</td><td>Контекст ввода-вывода ASIO для асинхронных операций </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">port</td><td>Порт, на котором сервер ожидает подключений </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3fafd9b59ee6e68832287e04dbe8c541" name="a3fafd9b59ee6e68832287e04dbe8c541"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3fafd9b59ee6e68832287e04dbe8c541">&#9670;&#160;</a></span>send_game_state()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void send_game_state </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; asio::ip::tcp::socket &gt;</td>          <td class="paramname"><span class="paramname"><em>socket</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="struct_game_state.html">GameState</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>state</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Отправляет состояние игры одному клиенту </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">socket</td><td>Сокет клиента </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">state</td><td>Состояние игры для отправки </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Переменные</h2>
+<a id="a39a4c239a5115203bf622699f3d70228" name="a39a4c239a5115203bf622699f3d70228"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39a4c239a5115203bf622699f3d70228">&#9670;&#160;</a></span>DOOR</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">char DOOR</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Инициализатор</b><div class="fragment"><div class="line">=</div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">char</span><span class="keyword">&gt;</span>(176)</div>
+</div><!-- fragment -->
+<p>Символ, обозначающий закрытую дверь </p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

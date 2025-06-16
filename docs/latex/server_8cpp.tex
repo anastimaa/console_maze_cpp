@@ -1,0 +1,184 @@
+\doxysection{Файл server.\+cpp}
+\hypertarget{server_8cpp}{}\label{server_8cpp}\index{server.cpp@{server.cpp}}
+
+
+Реализация сервера для двухпользовательской игры в лабиринт  
+
+
+{\ttfamily \#include "{}server.\+h"{}}\newline
+{\ttfamily \#include "{}dfsmaze.\+h"{}}\newline
+{\ttfamily \#include $<$asio.\+hpp$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$mutex$>$}\newline
+{\ttfamily \#include $<$random$>$}\newline
+{\ttfamily \#include $<$stdexcept$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$thread$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{server_8cpp_a1a488305df4507b923443c3309a35bfa}{generate\+\_\+maze}} (int level, bool quiet\+\_\+mode)
+\begin{DoxyCompactList}\small\item\em Генерирует лабиринт и размещает объекты в зависимости от уровня \end{DoxyCompactList}\item 
+\Hypertarget{server_8cpp_ac88833aaa22012dfe7b7ffa32774c93c}\label{server_8cpp_ac88833aaa22012dfe7b7ffa32774c93c} 
+void {\bfseries reset\+\_\+game\+\_\+state} ()
+\begin{DoxyCompactList}\small\item\em Сбрасывает текущее состояние игры к начальным значениям \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{server_8cpp_afef27bd34fa59e77c3ce50bd61560742}{check\+\_\+step}} (int x, int y, int player\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Проверяет возможность хода в указанную клетку \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{server_8cpp_a062634b960b9344cc3a6e89ffe83c151}{process\+\_\+player\+\_\+move}} (int player\+\_\+id, const std\+::string \&move)
+\begin{DoxyCompactList}\small\item\em Обрабатывает ход игрока, обновляет состояние игры \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{server_8cpp_a3fafd9b59ee6e68832287e04dbe8c541}{send\+\_\+game\+\_\+state}} (std\+::shared\+\_\+ptr$<$ asio\+::ip\+::tcp\+::socket $>$ socket, const \mbox{\hyperlink{struct_game_state}{Game\+State}} \&state)
+\begin{DoxyCompactList}\small\item\em Отправляет состояние игры одному клиенту \end{DoxyCompactList}\item 
+\Hypertarget{server_8cpp_a2a7c12b65f09b8afd033afd3b0b00964}\label{server_8cpp_a2a7c12b65f09b8afd033afd3b0b00964} 
+void {\bfseries broadcast\+\_\+game\+\_\+state} ()
+\begin{DoxyCompactList}\small\item\em Отправляет текущее состояние игры всем подключенным игрокам \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{server_8cpp_ac11ef209e4319d498021dd699b1a872d}{handle\+\_\+client}} (std\+::shared\+\_\+ptr$<$ asio\+::ip\+::tcp\+::socket $>$ socket, int player\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Обрабатывает подключение клиента\+: прием команд, отправка состояния \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{server_8cpp_aaa19e94b0c31a3e8110fb5b425598e43}{run\+\_\+server}} (asio\+::io\+\_\+context \&io\+\_\+context, unsigned short port)
+\begin{DoxyCompactList}\small\item\em Запускает сервер для обработки подключений игроков и управления игровыми сессиями \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Переменные}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{server_8cpp_ab8c8a2816ae974e5a2df22ec1e87fa51}\label{server_8cpp_ab8c8a2816ae974e5a2df22ec1e87fa51} 
+\mbox{\hyperlink{struct_game_state}{Game\+State}} {\bfseries game\+\_\+state}
+\begin{DoxyCompactList}\small\item\em Текущее состояние игры \end{DoxyCompactList}\item 
+\Hypertarget{server_8cpp_ae0940fc34ec62d41c941484214ea16fb}\label{server_8cpp_ae0940fc34ec62d41c941484214ea16fb} 
+std\+::mutex {\bfseries game\+\_\+mutex}
+\begin{DoxyCompactList}\small\item\em Мьютекс для синхронизации доступа \end{DoxyCompactList}\item 
+\Hypertarget{server_8cpp_ae73f8f1e728d5cd84d6523ece1dc7fd6}\label{server_8cpp_ae73f8f1e728d5cd84d6523ece1dc7fd6} 
+std\+::map$<$ int, std\+::shared\+\_\+ptr$<$ asio\+::ip\+::tcp\+::socket $>$ $>$ {\bfseries connections}
+\begin{DoxyCompactList}\small\item\em Активные подключения игроков \end{DoxyCompactList}\item 
+\Hypertarget{server_8cpp_a0e43b21e540c75c6923fe575de1e3d0f}\label{server_8cpp_a0e43b21e540c75c6923fe575de1e3d0f} 
+bool {\bfseries game\+\_\+running} = true
+\begin{DoxyCompactList}\small\item\em Флаг, определяющий, активна ли игра \end{DoxyCompactList}\item 
+\Hypertarget{server_8cpp_a7c1fd626dd4ab0a473c67a7e81549571}\label{server_8cpp_a7c1fd626dd4ab0a473c67a7e81549571} 
+int {\bfseries next\+\_\+player\+\_\+id} = 1
+\begin{DoxyCompactList}\small\item\em ID следующего подключающегося игрока \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Реализация сервера для двухпользовательской игры в лабиринт 
+
+
+
+\doxysubsection{Функции}
+\Hypertarget{server_8cpp_afef27bd34fa59e77c3ce50bd61560742}\index{server.cpp@{server.cpp}!check\_step@{check\_step}}
+\index{check\_step@{check\_step}!server.cpp@{server.cpp}}
+\doxysubsubsection{\texorpdfstring{check\_step()}{check\_step()}}
+{\footnotesize\ttfamily \label{server_8cpp_afef27bd34fa59e77c3ce50bd61560742} 
+bool check\+\_\+step (\begin{DoxyParamCaption}\item[{int}]{x}{, }\item[{int}]{y}{, }\item[{int}]{player\+\_\+id}{}\end{DoxyParamCaption})}
+
+
+
+Проверяет возможность хода в указанную клетку 
+
+
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{ in}}  & {\em x} & Координата x \\
+\hline
+\mbox{\texttt{ in}}  & {\em y} & Координата y \\
+\hline
+\mbox{\texttt{ in}}  & {\em player\+\_\+id} & ID игрока (1 или 2) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+true, если игрок может сделать ход в указанную клетку, иначе false 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Исключения}
+{\em std\+::out\+\_\+of\+\_\+range} & В случае, если координаты x или y находятся вне границ лабиринта \\
+\hline
+{\em std\+::invalid\+\_\+argument} & В случае, если указанного игрока (player\+\_\+id) нет в текущем состоянии игры \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{server_8cpp_a1a488305df4507b923443c3309a35bfa}\index{server.cpp@{server.cpp}!generate\_maze@{generate\_maze}}
+\index{generate\_maze@{generate\_maze}!server.cpp@{server.cpp}}
+\doxysubsubsection{\texorpdfstring{generate\_maze()}{generate\_maze()}}
+{\footnotesize\ttfamily \label{server_8cpp_a1a488305df4507b923443c3309a35bfa} 
+void generate\+\_\+maze (\begin{DoxyParamCaption}\item[{int}]{level}{, }\item[{bool}]{quiet\+\_\+mode}{ = {\ttfamily false}}\end{DoxyParamCaption})}
+
+
+
+Генерирует лабиринт и размещает объекты в зависимости от уровня 
+
+
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{ in}}  & {\em level} & Уровень сложности (1, 2 или 3) \\
+\hline
+\mbox{\texttt{ in}}  & {\em quiet\+\_\+mode} & По умолчанию false, но если true, то подавляет вывод сообщения в консоль \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Исключения}
+{\em std\+::invalid\+\_\+argument} & В случае, если введен неверный уровень сложности (не 1, 2 или 3) \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{server_8cpp_ac11ef209e4319d498021dd699b1a872d}\index{server.cpp@{server.cpp}!handle\_client@{handle\_client}}
+\index{handle\_client@{handle\_client}!server.cpp@{server.cpp}}
+\doxysubsubsection{\texorpdfstring{handle\_client()}{handle\_client()}}
+{\footnotesize\ttfamily \label{server_8cpp_ac11ef209e4319d498021dd699b1a872d} 
+void handle\+\_\+client (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ asio\+::ip\+::tcp\+::socket $>$}]{socket}{, }\item[{int}]{player\+\_\+id}{}\end{DoxyParamCaption})}
+
+
+
+Обрабатывает подключение клиента\+: прием команд, отправка состояния 
+
+
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{ in}}  & {\em socket} & Сокет подключенного клиента \\
+\hline
+\mbox{\texttt{ in}}  & {\em player\+\_\+id} & ID игрока (1 или 2) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{server_8cpp_a062634b960b9344cc3a6e89ffe83c151}\index{server.cpp@{server.cpp}!process\_player\_move@{process\_player\_move}}
+\index{process\_player\_move@{process\_player\_move}!server.cpp@{server.cpp}}
+\doxysubsubsection{\texorpdfstring{process\_player\_move()}{process\_player\_move()}}
+{\footnotesize\ttfamily \label{server_8cpp_a062634b960b9344cc3a6e89ffe83c151} 
+void process\+\_\+player\+\_\+move (\begin{DoxyParamCaption}\item[{int}]{player\+\_\+id}{, }\item[{const std\+::string \&}]{move}{}\end{DoxyParamCaption})}
+
+
+
+Обрабатывает ход игрока, обновляет состояние игры 
+
+
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{ in}}  & {\em player\+\_\+id} & ID игрока (1 или 2) \\
+\hline
+\mbox{\texttt{ in}}  & {\em move} & Направление хода ("{}up"{}, "{}down"{}, "{}left"{}, "{}right"{}) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{server_8cpp_aaa19e94b0c31a3e8110fb5b425598e43}\index{server.cpp@{server.cpp}!run\_server@{run\_server}}
+\index{run\_server@{run\_server}!server.cpp@{server.cpp}}
+\doxysubsubsection{\texorpdfstring{run\_server()}{run\_server()}}
+{\footnotesize\ttfamily \label{server_8cpp_aaa19e94b0c31a3e8110fb5b425598e43} 
+void run\+\_\+server (\begin{DoxyParamCaption}\item[{asio\+::io\+\_\+context \&}]{io\+\_\+context}{, }\item[{unsigned short}]{port}{}\end{DoxyParamCaption})}
+
+
+
+Запускает сервер для обработки подключений игроков и управления игровыми сессиями 
+
+
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{ in}}  & {\em io\+\_\+context} & Контекст ввода-\/вывода ASIO для асинхронных операций \\
+\hline
+\mbox{\texttt{ in}}  & {\em port} & Порт, на котором сервер ожидает подключений \\
+\hline
+\end{DoxyParams}
+\Hypertarget{server_8cpp_a3fafd9b59ee6e68832287e04dbe8c541}\index{server.cpp@{server.cpp}!send\_game\_state@{send\_game\_state}}
+\index{send\_game\_state@{send\_game\_state}!server.cpp@{server.cpp}}
+\doxysubsubsection{\texorpdfstring{send\_game\_state()}{send\_game\_state()}}
+{\footnotesize\ttfamily \label{server_8cpp_a3fafd9b59ee6e68832287e04dbe8c541} 
+void send\+\_\+game\+\_\+state (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ asio\+::ip\+::tcp\+::socket $>$}]{socket}{, }\item[{const \mbox{\hyperlink{struct_game_state}{Game\+State}} \&}]{state}{}\end{DoxyParamCaption})}
+
+
+
+Отправляет состояние игры одному клиенту 
+
+
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{ in}}  & {\em socket} & Сокет клиента \\
+\hline
+\mbox{\texttt{ in}}  & {\em state} & Состояние игры для отправки \\
+\hline
+\end{DoxyParams}

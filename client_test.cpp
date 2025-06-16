@@ -1,6 +1,6 @@
 ﻿#define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "client.h"
-#include "doctest.h"
+#include <doctest/doctest.h>
 #include <sstream>
 #include <stdexcept>
 

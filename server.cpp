@@ -379,8 +379,10 @@ void handle_client(std::shared_ptr<asio::ip::tcp::socket> socket,
       }
     }
   } catch (const std::exception &e) {
-    std::cerr << "Error with Player " << player_id << ": " << e.what()
-              << std::endl;
+    if (game_running) {
+      std::cerr << "Error with Player " << player_id << ": " << e.what()
+                << std::endl;
+    }
   }
 
   std::lock_guard<std::mutex> lock(game_mutex);

@@ -1,10 +1,21 @@
-﻿#include "dfsmaze.h"
+﻿/**
+ * \file dfsmaze.cpp
+ * \brief Реализация генерации лабиринта с помощью алгоритма поиска в глубину
+ * (DFS)
+ */
+
+#include "dfsmaze.h"
 #include <algorithm>
 #include <cstdlib>
 #include <ctime>
 #include <random>
 #include <stdexcept>
 #include <vector>
+
+
+ /**
+  * \brief Рекурсивная реализация алгоритма DFS для генерации лабиринта
+  */
 
 void dfs(std::vector<std::vector<char>>& maze, int height, int width,
     int start_x, int start_y) {
@@ -54,6 +65,10 @@ void dfs(std::vector<std::vector<char>>& maze, int height, int width,
     }
 }
 
+/**
+\brief Генерирует лабиринт заданного размера с помощью алгоритма поиска в
+* глубину(DFS)
+*/
 std::vector<std::vector<char>> dfsmaze_generate(int width, int height) {
     if (width < 3 || height < 3) {
         throw std::invalid_argument("Maze size must be at least 3x3");

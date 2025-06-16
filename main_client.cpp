@@ -12,7 +12,7 @@
 #include <vector>
 
 /**
- * \file main.cpp
+ * \file main_client.cpp
  * \brief Точка входа клиента для игры в лабиринт
  */
 

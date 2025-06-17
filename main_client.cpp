@@ -26,18 +26,18 @@ int main() {
         while (restartGame) {
             game_menu();
 
-            asio::io_context io_context;
+            asio::io_context io_context; // перем, через к предаются данные
             asio::ip::tcp::resolver resolver(io_context);
             auto endpoints = resolver.resolve("127.0.0.1", "65434");
-            asio::ip::tcp::socket* socket = new asio::ip::tcp::socket(io_context);
+            auto socket = std::make_shared<asio::ip::tcp::socket>(io_context);
 
             try {
                 asio::connect(*socket, endpoints);
                 asio::streambuf id_buffer;
                 asio::read_until(*socket, id_buffer, '\n');
-                std::istream id_stream(&id_buffer);
+                std::istream id_stream(&id_buffer); // поток, в кот этот буфер
                 std::string id_response;
-                std::getline(id_stream, id_response);
+                std::getline(id_stream, id_response); // считывание из потока строки
 
                 if (id_response.find("PLAYER_ID ") == 0) {
                     int assigned_id = stoi(id_response.substr(10));
@@ -63,7 +63,7 @@ int main() {
                 init_data = "JOIN " + game_state.codegame;
             }
 
-            asio::write(*socket, asio::buffer(init_data + "\n"));
+            asio::write(*socket, asio::buffer(init_data + "\n")); // назад серверу
 
             std::cout << "Connected to server successfully. Waiting for game setup..."
                 << std::endl;
@@ -109,7 +109,7 @@ int main() {
                 }
             }
 
-            recv_thread.join();
+            recv_thread.join(); 
             socket->close();
 
             std::cout << "\nPlay again? (Y/N): ";

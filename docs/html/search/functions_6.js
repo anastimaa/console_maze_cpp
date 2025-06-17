@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['receive_5fdata_0',['receive_data',['../client_8cpp.html#aefdd88cef44c493b41b8f2e8d0e86111',1,'receive_data(asio::ip::tcp::socket *socket):&#160;client.cpp'],['../client_8h.html#aefdd88cef44c493b41b8f2e8d0e86111',1,'receive_data(asio::ip::tcp::socket *socket):&#160;client.cpp']]],
-  ['reset_5fgame_5fstate_1',['reset_game_state',['../server_8cpp.html#ac88833aaa22012dfe7b7ffa32774c93c',1,'reset_game_state():&#160;server.cpp'],['../server_8h.html#ac88833aaa22012dfe7b7ffa32774c93c',1,'reset_game_state():&#160;server.cpp']]],
-  ['run_5fserver_2',['run_server',['../server_8cpp.html#aaa19e94b0c31a3e8110fb5b425598e43',1,'run_server(asio::io_context &amp;io_context, unsigned short port):&#160;server.cpp'],['../server_8h.html#aaa19e94b0c31a3e8110fb5b425598e43',1,'run_server(asio::io_context &amp;io_context, unsigned short port):&#160;server.cpp']]]
+  ['print_5fgame_5fstate_0',['print_game_state',['../client_8cpp.html#aa377824539a29ae5b1e384f427a7962f',1,'print_game_state(const GameState &amp;state):&#160;client.cpp'],['../client_8h.html#aa377824539a29ae5b1e384f427a7962f',1,'print_game_state(const GameState &amp;state):&#160;client.cpp']]],
+  ['process_5fplayer_5fmove_1',['process_player_move',['../server_8cpp.html#a062634b960b9344cc3a6e89ffe83c151',1,'process_player_move(int player_id, const std::string &amp;move):&#160;server.cpp'],['../server_8h.html#a062634b960b9344cc3a6e89ffe83c151',1,'process_player_move(int player_id, const std::string &amp;move):&#160;server.cpp']]]
 ];

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['main_2ecpp_0',['main.cpp',['../main_8cpp.html',1,'']]],
-  ['main_5fclient_2ecpp_1',['main_client.cpp',['../main__client_8cpp.html',1,'']]]
+  ['dfsmaze_2ecpp_0',['dfsmaze.cpp',['../dfsmaze_8cpp.html',1,'']]],
+  ['dfsmaze_2eh_1',['dfsmaze.h',['../dfsmaze_8h.html',1,'']]]
 ];

@@ -1,0 +1,123 @@
+\doxysection{Файл dfsmaze.\+h}
+\hypertarget{dfsmaze_8h}{}\label{dfsmaze_8h}\index{dfsmaze.h@{dfsmaze.h}}
+
+
+Заголовочный файл для генерации лабиринта с использованием алгоритма DFS.  
+
+
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::vector$<$ char $>$ $>$ \mbox{\hyperlink{dfsmaze_8h_a127ebca338c9f43f55b4f7a1229bcba3}{dfsmaze\+\_\+generate}} (int width, int height)
+\begin{DoxyCompactList}\small\item\em Генерирует лабиринт заданного размера с помощью алгоритма поиска в глубину (DFS) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{dfsmaze_8h_ac5bf7743f929f54691de6a609bd5a88a}{dfs}} (std\+::vector$<$ std\+::vector$<$ char $>$ $>$ \&maze, int height, int width, int start\+\_\+x, int start\+\_\+y)
+\begin{DoxyCompactList}\small\item\em Рекурсивная реализация алгоритма DFS для генерации лабиринта. Заимствовано. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Переменные}
+\begin{DoxyCompactItemize}
+\item 
+constexpr char \mbox{\hyperlink{dfsmaze_8h_ab2d03e1340eea713f44a1d0337e0df01}{WALL}}
+\begin{DoxyCompactList}\small\item\em Символ, обозначающий стену в лабиринте \end{DoxyCompactList}\item 
+constexpr char \mbox{\hyperlink{dfsmaze_8h_a5b19eb03b617b049c00c991a412deebb}{EMPTY}}
+\begin{DoxyCompactList}\small\item\em Символ, обозначающий пустое пространство (проход) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Заголовочный файл для генерации лабиринта с использованием алгоритма DFS. 
+
+
+
+\doxysubsection{Функции}
+\Hypertarget{dfsmaze_8h_ac5bf7743f929f54691de6a609bd5a88a}\index{dfsmaze.h@{dfsmaze.h}!dfs@{dfs}}
+\index{dfs@{dfs}!dfsmaze.h@{dfsmaze.h}}
+\doxysubsubsection{\texorpdfstring{dfs()}{dfs()}}
+{\footnotesize\ttfamily \label{dfsmaze_8h_ac5bf7743f929f54691de6a609bd5a88a} 
+void dfs (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::vector$<$ char $>$ $>$ \&}]{maze}{, }\item[{int}]{height}{, }\item[{int}]{width}{, }\item[{int}]{start\+\_\+x}{, }\item[{int}]{start\+\_\+y}{}\end{DoxyParamCaption})}
+
+
+
+Рекурсивная реализация алгоритма DFS для генерации лабиринта. Заимствовано. 
+
+
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{ in,out}}  & {\em maze} & Двумерный вектор лабиринта (изменяется в процессе генерации) \\
+\hline
+\mbox{\texttt{ in}}  & {\em height} & Высота лабиринта \\
+\hline
+\mbox{\texttt{ in}}  & {\em width} & Ширина лабиринта \\
+\hline
+\mbox{\texttt{ in}}  & {\em start\+\_\+x} & Начальная координата X \\
+\hline
+\mbox{\texttt{ in}}  & {\em start\+\_\+y} & Начальная координата Y\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Исключения}
+{\em std\+::out\+\_\+of\+\_\+range} & В случае, если начальные координаты выходят за границы лабиринта \\
+\hline
+{\em std\+::invalid\+\_\+argument} & В случае, если стартовая позиция не является пустой клеткой\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyNote}{Заметки}
+Функция используется внутренне в \doxylink{dfsmaze_8h_a127ebca338c9f43f55b4f7a1229bcba3}{dfsmaze\+\_\+generate()} 
+\end{DoxyNote}
+\Hypertarget{dfsmaze_8h_a127ebca338c9f43f55b4f7a1229bcba3}\index{dfsmaze.h@{dfsmaze.h}!dfsmaze\_generate@{dfsmaze\_generate}}
+\index{dfsmaze\_generate@{dfsmaze\_generate}!dfsmaze.h@{dfsmaze.h}}
+\doxysubsubsection{\texorpdfstring{dfsmaze\_generate()}{dfsmaze\_generate()}}
+{\footnotesize\ttfamily \label{dfsmaze_8h_a127ebca338c9f43f55b4f7a1229bcba3} 
+std\+::vector$<$ std\+::vector$<$ char $>$ $>$ dfsmaze\+\_\+generate (\begin{DoxyParamCaption}\item[{int}]{width}{, }\item[{int}]{height}{}\end{DoxyParamCaption})}
+
+
+
+Генерирует лабиринт заданного размера с помощью алгоритма поиска в глубину (DFS) 
+
+
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{ in}}  & {\em width} & Ширина лабиринта (минимум 3) \\
+\hline
+\mbox{\texttt{ in}}  & {\em height} & Высота лабиринта (минимум 3)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Двумерный вектор символов, представляющий лабиринт (WALL -\/ стены, EMPTY -\/ проходы)
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Исключения}
+{\em std\+::invalid\+\_\+argument} & В случае, если размеры лабиринта меньше 3×3 \\
+\hline
+\end{DoxyExceptions}
+
+
+\doxysubsection{Переменные}
+\Hypertarget{dfsmaze_8h_a5b19eb03b617b049c00c991a412deebb}\index{dfsmaze.h@{dfsmaze.h}!EMPTY@{EMPTY}}
+\index{EMPTY@{EMPTY}!dfsmaze.h@{dfsmaze.h}}
+\doxysubsubsection{\texorpdfstring{EMPTY}{EMPTY}}
+{\footnotesize\ttfamily \label{dfsmaze_8h_a5b19eb03b617b049c00c991a412deebb} 
+char EMPTY\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+{\bfseries Инициализатор}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\textcolor{charliteral}{'\ '}}
+
+\end{DoxyCode}
+
+
+Символ, обозначающий пустое пространство (проход) 
+
+\Hypertarget{dfsmaze_8h_ab2d03e1340eea713f44a1d0337e0df01}\index{dfsmaze.h@{dfsmaze.h}!WALL@{WALL}}
+\index{WALL@{WALL}!dfsmaze.h@{dfsmaze.h}}
+\doxysubsubsection{\texorpdfstring{WALL}{WALL}}
+{\footnotesize\ttfamily \label{dfsmaze_8h_ab2d03e1340eea713f44a1d0337e0df01} 
+char WALL\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+{\bfseries Инициализатор}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char}\textcolor{keyword}{>}(219)}
+
+\end{DoxyCode}
+
+
+Символ, обозначающий стену в лабиринте 
+

@@ -1,0 +1,274 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Console maze: Файл dfsmaze.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Console maze
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Функции</a> &#124;
+<a href="#var-members">Переменные</a>  </div>
+  <div class="headertitle"><div class="title">Файл dfsmaze.h</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Заголовочный файл для генерации лабиринта с использованием алгоритма DFS.  
+<a href="#details">Подробнее...</a></p>
+<div class="textblock"><code>#include &lt;vector&gt;</code><br />
+</div>
+<p><a href="dfsmaze_8h_source.html">См. исходные тексты.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:a127ebca338c9f43f55b4f7a1229bcba3" id="r_a127ebca338c9f43f55b4f7a1229bcba3"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; char &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a127ebca338c9f43f55b4f7a1229bcba3">dfsmaze_generate</a> (int width, int height)</td></tr>
+<tr class="memdesc:a127ebca338c9f43f55b4f7a1229bcba3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Генерирует лабиринт заданного размера с помощью алгоритма поиска в глубину (DFS)  <br /></td></tr>
+<tr class="separator:a127ebca338c9f43f55b4f7a1229bcba3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5bf7743f929f54691de6a609bd5a88a" id="r_ac5bf7743f929f54691de6a609bd5a88a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac5bf7743f929f54691de6a609bd5a88a">dfs</a> (std::vector&lt; std::vector&lt; char &gt; &gt; &amp;maze, int height, int width, int start_x, int start_y)</td></tr>
+<tr class="memdesc:ac5bf7743f929f54691de6a609bd5a88a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Рекурсивная реализация алгоритма DFS для генерации лабиринта. Заимствовано.  <br /></td></tr>
+<tr class="separator:ac5bf7743f929f54691de6a609bd5a88a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Переменные</h2></td></tr>
+<tr class="memitem:ab2d03e1340eea713f44a1d0337e0df01" id="r_ab2d03e1340eea713f44a1d0337e0df01"><td class="memItemLeft" align="right" valign="top">constexpr char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab2d03e1340eea713f44a1d0337e0df01">WALL</a></td></tr>
+<tr class="memdesc:ab2d03e1340eea713f44a1d0337e0df01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Символ, обозначающий стену в лабиринте  <br /></td></tr>
+<tr class="separator:ab2d03e1340eea713f44a1d0337e0df01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b19eb03b617b049c00c991a412deebb" id="r_a5b19eb03b617b049c00c991a412deebb"><td class="memItemLeft" align="right" valign="top">constexpr char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5b19eb03b617b049c00c991a412deebb">EMPTY</a></td></tr>
+<tr class="memdesc:a5b19eb03b617b049c00c991a412deebb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Символ, обозначающий пустое пространство (проход)  <br /></td></tr>
+<tr class="separator:a5b19eb03b617b049c00c991a412deebb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Заголовочный файл для генерации лабиринта с использованием алгоритма DFS. </p>
+</div><h2 class="groupheader">Функции</h2>
+<a id="ac5bf7743f929f54691de6a609bd5a88a" name="ac5bf7743f929f54691de6a609bd5a88a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5bf7743f929f54691de6a609bd5a88a">&#9670;&#160;</a></span>dfs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void dfs </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; std::vector&lt; char &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>maze</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>height</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>width</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>start_x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>start_y</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Рекурсивная реализация алгоритма DFS для генерации лабиринта. Заимствовано. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">maze</td><td>Двумерный вектор лабиринта (изменяется в процессе генерации) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">height</td><td>Высота лабиринта </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">width</td><td>Ширина лабиринта </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">start_x</td><td>Начальная координата X </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">start_y</td><td>Начальная координата Y</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Исключения</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::out_of_range</td><td>В случае, если начальные координаты выходят за границы лабиринта </td></tr>
+    <tr><td class="paramname">std::invalid_argument</td><td>В случае, если стартовая позиция не является пустой клеткой</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Заметки</dt><dd>Функция используется внутренне в <a class="el" href="#a127ebca338c9f43f55b4f7a1229bcba3" title="Генерирует лабиринт заданного размера с помощью алгоритма поиска в глубину (DFS)">dfsmaze_generate()</a> </dd></dl>
+
+</div>
+</div>
+<a id="a127ebca338c9f43f55b4f7a1229bcba3" name="a127ebca338c9f43f55b4f7a1229bcba3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a127ebca338c9f43f55b4f7a1229bcba3">&#9670;&#160;</a></span>dfsmaze_generate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::vector&lt; char &gt; &gt; dfsmaze_generate </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>width</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>height</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Генерирует лабиринт заданного размера с помощью алгоритма поиска в глубину (DFS) </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">width</td><td>Ширина лабиринта (минимум 3) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">height</td><td>Высота лабиринта (минимум 3)</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Двумерный вектор символов, представляющий лабиринт (WALL - стены, EMPTY - проходы)</dd></dl>
+<dl class="exception"><dt>Исключения</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::invalid_argument</td><td>В случае, если размеры лабиринта меньше 3×3 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Переменные</h2>
+<a id="a5b19eb03b617b049c00c991a412deebb" name="a5b19eb03b617b049c00c991a412deebb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b19eb03b617b049c00c991a412deebb">&#9670;&#160;</a></span>EMPTY</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">char EMPTY</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Инициализатор</b><div class="fragment"><div class="line">=</div>
+<div class="line"><span class="charliteral">&#39; &#39;</span></div>
+</div><!-- fragment -->
+<p>Символ, обозначающий пустое пространство (проход) </p>
+
+</div>
+</div>
+<a id="ab2d03e1340eea713f44a1d0337e0df01" name="ab2d03e1340eea713f44a1d0337e0df01"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2d03e1340eea713f44a1d0337e0df01">&#9670;&#160;</a></span>WALL</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">char WALL</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Инициализатор</b><div class="fragment"><div class="line">=</div>
+<div class="line"><span class="keyword">static_cast&lt;</span><span class="keywordtype">char</span><span class="keyword">&gt;</span>(219)</div>
+</div><!-- fragment -->
+<p>Символ, обозначающий стену в лабиринте </p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

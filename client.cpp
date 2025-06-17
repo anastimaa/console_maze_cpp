@@ -134,7 +134,7 @@ void print_game_state(const GameState& state) {
 }
 
 
-void receive_data(asio::ip::tcp::socket* socket) {
+void receive_data(std::shared_ptr<asio::ip::tcp::socket> socket){
     while (game_running) {
         asio::streambuf buffer;
         buffer.prepare(1024 * 10);
@@ -147,8 +147,8 @@ void receive_data(asio::ip::tcp::socket* socket) {
             game_running = false;
             break;
         }
-
-        std::istream is(&buffer);
+         
+        std::istream is(&buffer); // созд поток is
         std::string line;
         std::vector<std::string> lines;
 
@@ -156,7 +156,7 @@ void receive_data(asio::ip::tcp::socket* socket) {
             lines.push_back(line);
         }
 
-        std::lock_guard<std::mutex> lock(game_mutex);
+        std::lock_guard<std::mutex> lock(game_mutex); 
         GameState new_state;
         bool in_maze_section = true;
 

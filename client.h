@@ -75,6 +75,6 @@ void print_game_state(const GameState& state);
  * \brief Получает данные от сервера (запускается в отдельном потоке)
  * \param[in] socket Указатель на сокет для обмена данными с сервером
  */
-void receive_data(asio::ip::tcp::socket* socket);
+void receive_data(std::shared_ptr<asio::ip::tcp::socket> socket);
 
 #endif
